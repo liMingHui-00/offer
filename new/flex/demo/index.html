@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>携程</title>
+    <link rel="stylesheet" href="./normal.css" />
+    <link
+      rel="stylesheet"
+      href="//at.alicdn.com/t/c/font_4341948_1kk37k9fq4x.css"
+    />
+    <style>
+      body {
+        max-width: 540px;
+        min-width: 320px;
+        margin: 0 auto;
+        font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana,
+          "Microsoft Yahei", STXihei, hei;
+        color: #000;
+        background: #f2f2f2;
+        /* 防止x轴出现滚动条 */
+        overflow-x: hidden;
+        /* 防止点击高亮 */
+        -webkit-tap-highlight-color: transparent;
+      }
+      a{
+        text-decoration: none;
+      }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      div{
+        box-sizing: border-box;
+      }
+      .search-index{
+        display: flex;
+        /* 固定定位跟父级没有关系，它以屏幕为主 */
+        max-width: 540px;
+        min-width: 320px;
+        position: fixed;
+        transform: translate(-50%);
+        left: 50%;
+        top: 0;
+        height: 44px;
+        /* 固定定位的盒子应该有高度 */
+        width: 100%;
+        background-color: #f6f6f6;
+        border-top: 1px solid #f6f6f6;
+        border-bottom: 1px solid #f6f6f6;
+      }
+      .search{
+        flex: 1;
+        height: 26px;
+        border: 1px solid #000;
+        margin: 7px  10px;
+        border-radius: 6px;
+        font-size: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
+      }
+      #icon-sousuo{
+        margin-left: 5px ;
+      }
+      .user{
+        display: flex;
+        width: 44px;
+        height: 44px;
+      }
+      #icon-wode{
+       text-align: center;
+       font-size: 13px;
+      }
+       #icon-wode::after{
+        margin: auto 0;
+        content: '我 的';
+        /* 内容上面是行内元素，要想换行下来需要变成块级元素 */
+        display: block;
+        height: 22px;
+      }
+      .focus{
+        padding-top: 44px;
+      }
+      .focus img{
+        width: 100%;
+        height: 150px;
+      }
+    .local-nav{
+      display: flex;
+      height: 64px;
+      margin: 3px;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid #000;
+    }
+    .local-nav li {
+      flex: 1;
+      border: 1px solid #000;
+    }
+    .local-nav  a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .local-nav-icon{
+      border: 1px solid #000;
+      width: 40px;
+      height: 32px;
+      margin-top: 8px;
+
+    }
+    .local-nav span{
+      color: #222;
+    }
+    nav{
+      border-radius: 8px;
+      border: 1px solid #000;
+      margin: 0 4px 3px;
+      overflow: hidden;
+    }
+    .nav-common{
+      display: flex;
+      border: 1px solid #000;
+      height: 88px;
+      background-color: pink;
+    }
+    .nav-common:nth-child(2){
+      margin: 2px 0;
+    }
+    .nav-item{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      flex: 1;
+      border: 1px solid #000;
+    }
+    .nav-item:nth-child(-n+2){
+      border-right: 2px solid seashell;
+    }
+    .nav-item span {
+      border: 1px solid #000;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- 顶部搜索 -->
+      <div class="search-index">
+        <div class="search">
+          <i class="iconfont icon-sousuo" id="icon-sousuo"></i>
+           
+          </div>
+        <a href="#" class="user">
+          <i class="iconfont icon-wode" id="icon-wode"></i>
+        </a>
+      </div>
+      <!-- 轮播图 -->
+      <div class="focus">
+        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4wySZ?ver=f0f1" alt="">
+      </div>
+      <ul class="local-nav">
+        <li>
+          <a href="#" title="酒店">
+            <span class="local-nav-icon">图 片</span>
+            <span>酒店</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="酒店">
+            <span class="local-nav-icon">图 片</span>
+            <span>酒店</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="酒店">
+            <span class="local-nav-icon">图 片</span>
+            <span>酒店</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="酒店">
+            <span class="local-nav-icon">图 片</span>
+            <span>酒店</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" title="酒店">
+            <span class="local-nav-icon">图 片</span>
+            <span>酒店</span>
+          </a>
+        </li>
+      </ul>
+      <!-- 著导航栏 -->
+      <nav>
+        <div class="nav-common">
+        <div class="nav-item">
+          <span>上</span>
+          <span>下</span>
+        </div>
+        <div class="nav-item">
+          <span>上</span>
+          <span>下</span>
+        </div>
+        <div class="nav-item">
+          <span>上</span>
+          <span>下</span>
+        </div>
+      </div>
+        <div class="nav-common">2</div>
+        <div class="nav-common">3</div>
+      </nav>
+    </div>
+  </body>
+</html>

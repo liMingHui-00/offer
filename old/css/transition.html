@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="transition">transition</div>
+    <div class="animation">animation</div>
+    <style>
+      .transition {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(220, 30, 30);
+        opacity: 1;
+        transition: opacity 1s linear;
+      }
+      /* transition 需要去触发    点击事件、鼠标移入事件*/
+      .transition:hover {
+        opacity: 0.5;
+      }
+      .animation {
+        width: 100px;
+        height: 100px;
+        background-color: burlywood;
+        animation: mymove 5s infinite;
+      }
+      @keyframes mymove {
+        0% {
+          width: 100px;
+          height: 100px;
+        }
+        100% {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    </style>
+  </body>
+</html>

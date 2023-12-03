@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="jd">
+      <div >
+        <span class="top"> 京东秒杀 </span>
+      </div>
+      <div class="main">
+        <span>
+          <strong>10:00</strong>
+          点场 倒计时
+        </span>
+        <div class="buttom">
+          <span class="hour">11</span>
+          <span class="minute">22</span>
+          <span class="second">33</span>
+        </div>
+      </div>
+    </div>
+  </body>
+  <style>
+    .jd{
+      background: url(./3.png) no-repeat;
+      position: relative;
+      width: 347px;
+      height: 492px;
+      color: red;
+    }
+    .top{
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      display: flex;
+      border: 1px solid #000;
+     justify-content: center;
+     align-items: center;
+      font-weight: 800;
+   position: absolute;
+   left:120px;
+    }
+    .main{
+      position: absolute;
+      border: 1px solid #000;
+     justify-content: center;
+     align-items: center;
+      font-weight: 800;
+     left: 120px;
+     top: 300px;
+
+    }
+    .buttom{
+      position: absolute;
+      top: 100px;
+      
+     
+    }
+    .hour{
+      display: inline-block;
+      background: #000;
+    }
+    .hour::after{
+      content: ':';
+    }
+    .minute{
+      background: #000;
+    }
+  </style>
+</html>

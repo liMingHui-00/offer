@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inter">子</div>
+    </div>
+    <style>
+      .outer {
+        /* position: relative;
+        border: 1px solid #000;
+        width: 100px;
+        box-sizing: border-box;
+        height: 100px; */
+
+        /* position: relative;
+        border: 1px solid #000;
+        width: 100px;
+        height: 100px; */
+
+        border: 1px solid #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+      }
+      .inter {
+        /* position: absolute;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto; */
+
+        /* position: absolute;
+        left: 50%;
+        top: 50%;
+        border: 1px solid #000;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px; */
+
+        border: 1px solid #000;
+      }
+    </style>
+    <script>
+      let el = document.querySelector(".inter");
+      let style = window.getComputedStyle(el, null);
+      let padding = parseFloat(style.getPropertyValue("padding")); //0
+      let margin = parseFloat(style.getPropertyValue("margin")); //44    +5   +1
+      console.log(margin);
+    </script>
+  </body>
+</html>

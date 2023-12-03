@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="dragabled">
+      <div class="txt" id="txt"><p draggable="true">我是可以拖拽的</p></div>
+      <div id="url" class="url">
+        <a href="http://weiqinl.com" target="true">我是url</a>
+      </div>
+      <img id="img1" src="../1.png" alt="图片1" />
+      <img id="img2" src="../1.png" alt="图片2" />
+    </div>
+    <script>
+      const dragSrc = document.getElementById("txt");
+      const target = document.getElementById("target");
+      dragSrc.ondragstart = handle_start;
+      dragSrc.ondrag = handle_drag;
+      dragSrc.ondragend = handle_end;
+      function handle_start(e) {
+        console.log("在元素开始拖拽时候触发");
+      }
+      function handle_drag(e) {
+        console.log("在元素拖拽时候反复触发");
+        // e.dataTransfer.setData("text/plain", "我是拖拽的数据");
+      }
+      function handle_end(e) {
+        console.log("在元素结束拖拽时候触发");
+      }
+    </script>
+  </body>
+</html>

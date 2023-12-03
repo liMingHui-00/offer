@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="left" id="leftDiv">
+        <!-- 左边的小图 -->
+        <img src="./a.jpg" alt="" />
+        <!-- 遮盖 -->
+        <div class="small"></div>
+      </div>
+      <div class="right">
+        <!-- 右边放大的图片 -->
+        <img src="./a.jpg" id="imgRight"/>
+      </div>
+    </div>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .main {
+        display: flex;
+        margin: 20px auto;
+      }
+      .left {
+        width: 400px;
+        height: 400px;
+        position: relative;
+      }
+      .left img {
+        width: 100%;
+        height: 100%;
+      }
+      /* 遮盖 */
+      .left .small {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        opacity: 0.5;
+        width: 200px;
+        height: 200px;
+      }
+     
+      .right {
+        position: relative;
+        display: flex;
+        width: 800px;
+        height: 800px;
+        background-color: #bfa;
+        margin-left: 30px;
+      }
+       /* 放大的效果 */
+      .right img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+      }
+    </style>
+    <script>
+    // 获取左边的图片
+    const imgLeft = document.querySelector('.left')
+    const leftDiv = document.getElementById('leftDiv')
+    // 右边的图片
+    const imgRight = document.getElementById('imgRight')
+    // 获取遮盖
+    const small = document.querySelector('.small')
+    small.addEventListener('mousemove',(event) => {
+      
+      let x = event.clientX - leftDiv.offsetLeft - small.offsetWidth/2
+      let y = event.clientY - leftDiv.offsetTop - small.offsetHeight/2
+      if (x<0) {
+        x=0
+      }else if (x>200) {
+          x = 200
+      }  if (y<0) {
+        y=0
+      }else if (y>200) {
+          y = 200
+      }
+      // 移动
+      small.style.left = x +'px'
+      small.style.top = y +'px'
+      // 改变大图的位置
+      imgRight.style.left = x*2 + 'px'
+      imgRight.style.top = y*2 + 'px'
+    })
+    // 当鼠标划入的时候  显示放大镜
+      leftDiv.addEventListener('mouseover',(event) => {
+      //  显示
+        small.style.display='block'
+        imgRight.style.display='block'
+        event.stopPropagation(); // 阻止事件冒泡
+    })
+ 
+    imgLeft.addEventListener('mouseout',() => {
+      //  隐藏
+        small.style.display='none'
+        imgRight.style.display='none'
+    })
+    </script>
+  </body>
+</html>

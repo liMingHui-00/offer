@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>外边距塌陷</title>
+    <style>
+      .box {
+        background-color: aqua;
+        /* 这时我们给父元素添加overflow:hidden  就能解决外边距塌陷
+                此时父元素的高度就变成了子元素的高度加上margin-top
+        */
+        overflow: hidden;
+      }
+      .kid {
+        background-color: brown;
+        height: 100px;
+        width: 100px;
+        /* 如果子元素添加了margin-top后父元素会随着子元素一起向下移动，造成外边距塌陷 */
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="kid">子元素</div>
+    </div>
+  </body>
+</html>

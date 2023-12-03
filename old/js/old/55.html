@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      
+
+      // var arr = [{check:true,id:1},{check:false,id:2},{check:false,id:3},{check:true,id:4}]
+      // var res = arr.filter((item)=>{
+      //   return item.check===true
+      // })
+      // console.log(res);
+
+      // 8、计算出以下商品单价和金额的总和，初始值为10
+    //  let  arr = [{count:1,price:10,name:'a'},{count:3,price:50,name:'b'},{count:5,price:23,name:'c'},{count:2,price:14,name:'d'}];
+    //   let sum = arr.reduce((sum, item)=>sum+item.price, 0);
+    //   console.log(sum+10);
+
+    // 9、; 解析的过程及结果
+//     var a=10;
+//     function test(){
+//         console.log(a); //undefined
+//         a=100; 
+//         var b = 2*a;       
+//         var a;      
+//         console.log(a); //100
+//         console.log(b)  //200
+//     }
+// test()
+
+// 10、解析的过程及结果 
+// function fun () {
+//         console.log( n );//123
+//         n = 456;
+//         console.log( n );//456
+//       }
+//       var n= 123;
+//       fun();
+//       console.log( n ); //456
+
+
+
+// var arr=['x','y','z'];
+// var obj = {};
+// console.log(typeof arr);  
+// console.log(typeof obj);   
+const form = {
+    name:'lisi'
+    ,age:20
+    ,gender:'男'
+}
+form.__proto__ ={
+    phone:'155125'
+}
+const cloneForm =structuredClone(form)
+console.log(cloneForm===form);
+console.log(form.phone,cloneForm.phone);
+    </script>
+  </body>
+</html>

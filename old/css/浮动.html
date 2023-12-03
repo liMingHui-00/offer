@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style type="text/css">
+      /* 浮动的定义：
+            容器不设置高度 且子元素浮动时，容器的高度不能被内容撑开，这时内容会溢出到容器的外部而影响布局，这个现象叫做浮动
+
+        */
+      .box {
+        background: skyblue;
+        /* 清除浮动 1. 给包含浮动元素的父元素设置overflow:auto ,hidden
+        overflow: hidden; */
+        /* 2. 给父元素添加height属性 
+        height: 300px;*/
+      }
+      .kid {
+        width: 100px;
+        height: 100px;
+        float: left;
+      }
+      .kid1 {
+        background: yellow;
+      }
+      .kid2 {
+        background: orange;
+        /* 3. 给最后一个浮动的元素添加一个空的div标签，并添加clear:both样式
+        clear: both; */
+      }
+      .wrap {
+        width: 300px;
+        height: 150px;
+        background: blue;
+        color: white;
+      }
+    </style>
+
+    <body>
+      <div class="box">
+        <div class="kid kid1">子元素1</div>
+        <div class="kid kid2">子元素2</div>
+      </div>
+      <div class="wrap">其他部分</div>
+    </body>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Link vs @import</title>
+    <link rel="stylesheet" href="./styles.css" id="linkStyle" />
+
+    <style>
+      @import url("./imported.css");
+    </style>
+
+    <script>
+      // 使用<link>标签的样式表
+      function changeLinkStyle() {
+        var linkElement = document.getElementById("linkStyle");
+        // linkElement.href = "newStyles.css";
+        linkElement.href = "imported.css";
+      }
+
+      // 使用@import的样式表
+      function changeImportStyle() {
+        var importedStyleElement = document.styleSheets[1];
+        importedStyleElement.insertRule(
+          "body { background-color: yellow; }",
+          0
+        );
+      }
+    </script>
+  </head>
+  <body>
+    <h1>This is a heading</h1>
+    <button onclick="changeLinkStyle()">Change Link Style</button>
+    <button onclick="changeImportStyle()">Change @import Style</button>
+  </body>
+</html>

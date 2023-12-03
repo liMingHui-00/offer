@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            box-sizing: border-box;
+        }
+
+        .outside {
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            border: 3px solid #000;
+            border-radius: 10px;
+            background-color: aquamarine;
+        }
+
+        .inner {
+            width: 215px;
+            height: 215px;
+            border: 3px solid #000;
+            margin: 10px auto;
+            position: relative;
+
+        }
+
+        .bottom {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 30px;
+        }
+
+        .snack>div {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            position: absolute;
+            border: 1px solid #000;
+
+        }
+
+        .food {
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outside">
+        <div class="inner">
+            <!-- 🐍 -->
+            <div class="snack">
+                <!-- 身体 -->
+                <div></div>
+            </div>
+            <!-- 食物   0-200    -->
+            <div class="food"></div>
+        </div>
+        <div class="bottom">
+            <div class="score">分数：0</div>
+            <div class="level">等级：1</div>
+        </div>
+    </div>
+    <script>
+        //   获取🐍的容器
+        const snack = document.getElementsByClassName('snack')[0]
+        //  获取蛇的各个部分
+        const snacks = snack.getElementsByTagName('div')
+        // 获取食物
+        const food = document.getElementsByClassName('food')[0]
+        // 获取分数
+        const score = document.getElementsByClassName('score')[0]
+        let scoreText = 0 
+        // 获取等级
+        const level = document.getElementsByClassName('level')[0]
+        let levelText = 1
+        // 控制速度快慢
+        let speed = 300
+        // 存储方向
+        let dir
+        const keyArr = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
+        // 创建一个对象
+        const reObj = {
+            ArrowUp: 'ArrowDown',
+            ArrowDown: 'ArrowUp',
+            ArrowLeft: 'ArrowRight',
+            ArrowRight: 'ArrowLeft',
+        }
+        // 防止按键过快 掉头 
+        let keyActive = true
+        // 绑定按键事件
+        document.addEventListener('keydown', function (e) {
+            if (keyActive && keyArr.includes(e.key)) {
+                if (snacks.length < 2 || reObj[dir] !== e.key) {
+                    dir = e.key
+                    keyActive = false
+                }
+            }
+            keyActive = false
+        })
+        function changeFood() {
+            // 0-200 
+            const x = Math.floor(Math.random() * 20) * 10
+            const y = Math.floor(Math.random() * 20) * 10
+            food.style.left = x + 'px'
+            food.style.top = y + 'px'
+        }
+        changeFood()
+        setTimeout(
+            function move() {
+                // 蛇头
+                const head = snacks[0]
+                // 蛇头坐标
+                let x = head.offsetLeft
+                let y = head.offsetTop
+                switch (dir) {
+                    case 'ArrowUp':
+                        y -= 10
+                        break
+                    case 'ArrowDown':
+                        y += 10
+                        break
+                    case 'ArrowLeft':
+                        x -= 10
+                        break
+                    case 'ArrowRight':
+                        x += 10
+                        break
+                }
+                // 检查蛇是否吃到食物
+                if (head.offsetTop === food.offsetTop && head.offsetLeft === food.offsetLeft) {
+                    // 加分
+                    scoreText++
+                    score.textContent ='分数：'+ scoreText
+                    // 升级
+                    if (scoreText % 2 ===0 && speed > 0) {
+                        levelText++
+                        level.textContent ='等级：'+ levelText
+                        // 速度变快
+                        speed-=50
+                    }
+                    // 改变食物的位置
+                    changeFood()
+                    // 增加蛇的身体
+                    snack.insertAdjacentHTML('beforeend', '<div></div>')
+                }
+
+                // 判断是否撞墙
+                if (x < 0 || x > 200 || y < 0 || y > 200) {
+                    alert('撞墙了，游戏结束')
+                    return
+                }
+                // 判断是否撞到身体
+
+                //                           不判断头和尾巴碰撞
+                for (let i = 0; i < snacks.length - 1; i++) {
+                    if (snacks[i].offsetLeft === x && snacks[i].offsetTop === y) {
+                        alert('撞到自己了，游戏结束')
+                        return
+                    }
+
+                }
+
+                // 获取尾巴
+                const tail = snacks[snacks.length - 1]
+                // 移动蛇的身体
+                tail.style.left = x + 'px'
+                tail.style.top = y + 'px'
+                // 把尾巴变蛇头
+                snack.insertAdjacentElement('afterbegin', tail)
+                keyActive = true
+                setTimeout(move, speed)
+            }
+            , speed)
+    </script>
+</body>
+
+</html>

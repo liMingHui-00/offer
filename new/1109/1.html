@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4334077_67tpwtofvci.css">
+  <title>Document</title>
+</head>
+<body>
+  <i class="iconfont icon-bingqilin-01"></i>
+
+  <script>
+    const obj = {
+  name: '张三',
+  age: 18,
+}
+Object.defineProperty(obj,'hobby',{
+ value:['吃饭','睡觉','打豆豆'],
+})
+console.log(obj);
+console.log(obj.hasOwnProperty('hobby'));
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 去重 -->
+  <script>
+    // let arr = [4,2,1,5,3,4,5]
+    // let arr1 = arr.sort()
+    // let brr = []
+    // for(let i = 0;i<arr1.length;i++){
+    //   if (arr1[i] !==arr1[i+1]) {
+    //     brr.push(arr1[i])
+    //   }
+    // }
+    // console.log(brr);
+
+    // 找出最大值
+    // let arr = [[4,5],[9,2,4],[7,6,2]]
+    // let newArr = []
+    // arr.forEach((item,index)=>{
+    //   newArr.push(Math.max(...item))
+    // })
+    // console.log(newArr);
+
+
+    // 找出字符串中出现次数最多的字符
+    const str = 'aassdddddddddddddsdfdhddadadadadaaaa'
+    let obj = {}
+    for(let i = 0 ;i <str.length; i++){
+        if (obj[str[i]]) {
+          obj[str[i]]++
+        } else {
+          obj[str[i]]=1
+        }
+    }
+    console.log(obj);
+    let max  = 0
+for (const key in obj) {
+  if (obj[key] > max) {
+    max = obj[key]
+    
+  }
+}
+console.log('出现的次数为：'+max);
+for(const key in obj){
+  if (max == obj[key]) {
+    console.log(key+'5555555555555');
+  }
+
+}
+  </script>
+</body>
+</html>
