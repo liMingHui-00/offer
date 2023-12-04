@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <>
+    <!-- 防抖： 在一段时间内只执行一次  若在n秒内被持续触发，则重新开始计时  -->
+    <h3>防抖</h3>
+    <input id="inp1" type="text" />
+    <br>
+    <hr>
+    <input id="inp2" type="number"/>
+    <script>
+      let inp1 = document.getElementById("inp1")
+     
+      let timer
+      inp1.onkeyup = () => {
+        if (timer) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          console.log("hahha")
+        }, 1000)
+      }
+
+      // 节流：在一段时间内执行一次，在n秒内只能触发一次，如果n秒内持续触发只能生效一次
+      let inp2 = document.getElementById("inp2")
+
+      let timer2 
+      inp2.onkeyup = () => {
+        if (timer2) {
+          return
+        }
+        timer2 = setTimeout(() => {
+          console.log('节流');
+          timer2 = null
+        }, 100);
+      }
+    </script>
+  </body>
+</html>
